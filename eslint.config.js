@@ -38,7 +38,7 @@ export default [
         },
     },
     {
-        ignores: ['vendor', 'node_modules', 'public', 'bootstrap/ssr', 'tailwind.config.js', 'legacy', 'storage'],
+        ignores: ['vendor', 'node_modules', 'public', 'bootstrap/ssr', 'tailwind.config.js', 'legacy', 'storage', 'test-results', 'playwright-report', 'blob-report', '.cline-home'],
     },
     prettier, // Turn off all rules that might conflict with Prettier
 ];

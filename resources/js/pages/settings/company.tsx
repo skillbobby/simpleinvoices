@@ -201,7 +201,7 @@ export default function CompanySettings({ company, nextNumberPreview }: CompanyS
                                 <Label htmlFor="website">Website</Label>
                                 <Input
                                     id="website"
-                                    type="url"
+                                    type="text"
                                     value={form.data.website}
                                     onChange={(event) => form.setData('website', event.target.value)}
                                     placeholder="https://company.com"
@@ -509,7 +509,7 @@ export default function CompanySettings({ company, nextNumberPreview }: CompanyS
                         <p className={hintClass}>Changes apply to future invoices and PDFs.</p>
                         <div className="flex items-center gap-3">
                             {form.recentlySuccessful ? <span className="text-ok text-xs font-medium">Saved</span> : null}
-                            <Button type="submit" disabled={form.processing} className="bg-fin hover:bg-fin/90 text-white">
+                            <Button type="submit" disabled={form.processing} className="bg-ink hover:bg-ink/90 text-white">
                                 {form.processing ? 'Saving…' : 'Save changes'}
                             </Button>
                         </div>

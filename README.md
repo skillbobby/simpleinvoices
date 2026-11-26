@@ -47,9 +47,9 @@ production; all migrations are portable.
 
 `php artisan migrate:fresh --seed` creates two companies to demonstrate tenant isolation:
 
-| Company | Login | Password |
-|---|---|---|
-| Acme Studio (USD, `ACM-` invoices) | `demo@simpleinvoices.test` | `password` |
+| Company                              | Login                           | Password   |
+| ------------------------------------ | ------------------------------- | ---------- |
+| Acme Studio (USD, `ACM-` invoices)   | `demo@simpleinvoices.test`      | `password` |
 | Northwind Labs (GBP, `NW-` invoices) | `northwind@simpleinvoices.test` | `password` |
 
 Each tenant has its own customers, catalogue, invoices in different states and payments. Invoice numbers
@@ -58,14 +58,24 @@ restart at `0001` for each company.
 ## Testing & quality
 
 ```bash
-php artisan test        # feature + unit suites
+php artisan test        # PHPUnit feature + unit suites
+npm run test:e2e        # Playwright browser tests (resets + seeds the SQLite DB)
 npm run lint            # eslint
 npm run format:check    # prettier
 npm run build           # vite production build
 ```
 
-The suite covers tenant isolation (list, show, update, delete, PDF, public tokens), invoice maths and
-lifecycle, payment allocation, roles, registration/tenant provisioning, reports and CSV export.
+The PHPUnit suite covers tenant isolation (list, show, update, delete, PDF, public tokens), invoice
+maths and lifecycle, payment allocation, roles, registration/tenant provisioning, reports and CSV
+export. The Playwright suite drives a real Chromium browser against `php artisan serve` and covers
+marketing → registration, customer/product/invoice creation, discounts, public invoice + PDF,
+payment collection, reports/CSV export, settings persistence, team invitations and cross-tenant 404s.
+
+First run only:
+
+```bash
+npx playwright install chromium
+```
 
 ## Project layout
 

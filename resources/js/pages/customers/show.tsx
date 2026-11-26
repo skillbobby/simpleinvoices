@@ -72,7 +72,7 @@ export default function ShowCustomer({ customer, invoices, payments, stats }: Cu
                                     <Pencil /> Edit
                                 </Link>
                             </Button>
-                            <Button className="bg-fin hover:bg-fin/90 text-white" asChild>
+                            <Button className="bg-ink hover:bg-ink/90 text-white" asChild>
                                 <Link href={route('invoices.create', { customer_id: customer.id })}>
                                     <Plus /> New invoice
                                 </Link>
