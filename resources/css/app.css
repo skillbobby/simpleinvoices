@@ -1,0 +1,131 @@
+@import url('https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap');
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Simple Invoices design system — Intercom editorial canvas.
+ * Cream ground, white floating cards, hairline borders, charcoal ink, and a
+ * single Fin Orange accent reserved for highlights (never page backgrounds).
+ */
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --color-canvas: #f5f1ec;
+    --color-surface: #ffffff;
+    --color-surface-2: #ebe7e1;
+    --color-hairline: #d3cec6;
+    --color-hairline-soft: #ebe7e1;
+    --color-ink: #111111;
+    --color-ink-muted: #626260;
+    --color-ink-subtle: #7b7b78;
+    --color-fin: #ff5600;
+    --color-fin-soft: #fff0e8;
+    --color-ok: #0b7a3b;
+    --color-ok-soft: #e6f4ea;
+    --color-warn: #8a5300;
+    --color-warn-soft: #fbf0d9;
+    --color-danger: #c41c1c;
+    --color-danger-soft: #fbe9e7;
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+
+    --color-background: #f5f1ec;
+    --color-foreground: #111111;
+
+    --color-card: #ffffff;
+    --color-card-foreground: #111111;
+
+    --color-popover: #ffffff;
+    --color-popover-foreground: #111111;
+
+    --color-primary: #111111;
+    --color-primary-foreground: #ffffff;
+
+    --color-secondary: #ebe7e1;
+    --color-secondary-foreground: #111111;
+
+    --color-muted: #ebe7e1;
+    --color-muted-foreground: #626260;
+
+    --color-accent: #ebe7e1;
+    --color-accent-foreground: #111111;
+
+    --color-destructive: #c41c1c;
+    --color-destructive-foreground: #ffffff;
+
+    --color-border: #d3cec6;
+    --color-input: #d3cec6;
+    --color-ring: #111111;
+
+    --color-chart-1: #111111;
+    --color-chart-2: #ff5600;
+    --color-chart-3: #65b5ff;
+    --color-chart-4: #0bdf50;
+    --color-chart-5: #ff2067;
+
+    --color-sidebar: #f5f1ec;
+    --color-sidebar-foreground: #111111;
+    --color-sidebar-primary: #111111;
+    --color-sidebar-primary-foreground: #ffffff;
+    --color-sidebar-accent: #ebe7e1;
+    --color-sidebar-accent-foreground: #111111;
+    --color-sidebar-border: #d3cec6;
+    --color-sidebar-ring: #111111;
+}
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-hairline);
+    }
+
+    html {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.02em;
+    }
+}
+
+@layer utilities {
+    .text-display {
+        letter-spacing: -0.045em;
+        font-weight: 500;
+        line-height: 1.05;
+    }
+
+    .paper-grid {
+        background-image: radial-gradient(var(--color-hairline) 0.6px, transparent 0.6px);
+        background-size: 22px 22px;
+    }
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+    }
+}
